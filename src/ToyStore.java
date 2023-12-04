@@ -38,10 +38,13 @@ public class ToyStore {
 
     public void play()
     {
+        //calc total elements
         double totalFrequency = 0;
         for (Toy toy : toys){
             totalFrequency += toy.getDropFrequency();
         }
+
+//        random generator for game
 
         Random rnd = new Random();
         double rndNumber = rnd.nextDouble() * totalFrequency;
@@ -55,6 +58,7 @@ public class ToyStore {
             rndNumber -= toy.getDropFrequency();
         }
 
+//        fill prizes list
         if (prize != null && prize.getQuantity() >0 ){
             prizes.add(prize);
             prize.setQuantity((prize.getQuantity()) - 1);
