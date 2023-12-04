@@ -10,5 +10,7 @@ public class main {
         tStore.setDropFrequency(5, 15);
 
         tStore.play();
+
+        tStore.getPrize();
     }
 }
