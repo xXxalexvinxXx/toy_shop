@@ -1,8 +1,8 @@
 public class Toy {
-    private int id;
-    private String toyName;
-    private int quantity;
-    private double dropFrequency;
+    private int id;             //id  игрушки
+    private String toyName;     //название игрушки
+    private int quantity;       //колличество
+    private double dropFrequency; //частота выпадения
 
     public Toy(int id, String toyName, int quantity, double dropFrequency) {
         this.id = id;
