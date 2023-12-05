@@ -15,12 +15,13 @@ public class ToyStore {
     public ArrayList<Toy> getToys() {
         return toys;
     }
+    //region Установка шанса выпадения игрушки
 
-    public boolean setDropFrequency(int id, double dropFrequency) { //установка частоты выпадения игрушки
+    public boolean setDropChance(int id, double dropChance) {
         int i = 0;
         for (Toy toy : toys) {
             if (toy.getId() == id) {
-                toy.setDropFrequency(dropFrequency);
+                toy.setDropChance(dropChance);
                 i++;
             }
         }
@@ -28,7 +29,9 @@ public class ToyStore {
             return false;
         } else return true;
     }
+    //endregion
 
+    //region Удаление игрушки
     public void removeToy(ArrayList<Toy> toys, String name) { //удаление игрушки
         int i = 0;
         for (Toy toy : toys) {
@@ -44,17 +47,20 @@ public class ToyStore {
         }
         else System.out.println("Игрушки " + name + " не существует");
     }
+    //endregion
 
-    public boolean changeItem(String name, int quantity, double dropFrequency){
+    //region Изменение игрушки
+    public boolean changeItem(String name, int quantity, double dropChance){
         boolean flag = false;
         for (Toy toy: toys){
             if(toy.getToyName().contains(name)){
                 toy.setToyName(name);
                 toy.setQuantity(quantity);
-                toy.setDropFrequency(dropFrequency);
+                toy.setDropChance(dropChance);
                 flag = true;
             }
         }
         return flag;
     }
+    //endregion
 }
