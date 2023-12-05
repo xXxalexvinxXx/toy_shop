@@ -2,21 +2,17 @@ public class Toy {
     private int id;             //id  игрушки
     private String toyName;     //название игрушки
     private int quantity;       //колличество
-    private double dropFrequency; //частота выпадения
+    private double dropChance; //частота выпадения
 
-    public Toy(int id, String toyName, int quantity, double dropFrequency) {
+    public Toy(int id, String toyName, int quantity, double dropChance) {
         this.id = id;
         this.toyName = toyName;
         this.quantity = quantity;
-        this.dropFrequency = dropFrequency;
+        this.dropChance = dropChance;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getToyName() {
@@ -35,11 +31,11 @@ public class Toy {
         this.quantity = quantity;
     }
 
-    public double getDropFrequency() {
-        return dropFrequency;
+    public double getDropChance() {
+        return dropChance;
     }
 
-    public void setDropFrequency(double dropFrequency) {
-        this.dropFrequency = dropFrequency;
+    public void setDropChance(double dropChance) {
+        this.dropChance = dropChance;
     }
 }

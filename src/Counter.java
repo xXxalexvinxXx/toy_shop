@@ -6,6 +6,7 @@ public class Counter {
     }
 
     public int getId() {
+        id++;
         return id;
     }
 }

@@ -11,7 +11,7 @@ public class Menu {
 
         System.out.printf("%-8s%-20s%-18s%-10s\n", "Id", "Name", "Quantity", "Frequency");
         for (Toy toy : toys)
-            System.out.printf("%-8d%-20s%-18d%-10f\n", toy.getId(), toy.getToyName(), toy.getQuantity(), toy.getDropFrequency());
+            System.out.printf("%-8d%-20s%-18d%-10f\n", toy.getId(), toy.getToyName(), toy.getQuantity(), toy.getDropChance());
 
     }
 
@@ -39,7 +39,7 @@ public class Menu {
                 game.choosePrizesRandom(store.getToys());
                 Toy prizeToy = game.getPrizeToy();
                 if (prizeToy != null) {
-                    System.out.println("\nПризовая игрушка: " + prizeToy.getToyName() + '\n');
+                    System.out.println("\nпризовая игрушка: " + prizeToy.getToyName() + '\n');
                 }
             } else if (user_input.contains("3")) {
                 System.out.println("Введите id: ");
@@ -47,7 +47,7 @@ public class Menu {
                 System.out.println("Введите шанс выпадения: ");
                 double newFrequency = Double.parseDouble(in.next());
                 if (newFrequency > 0 && newFrequency < 100) {
-                    if (!store.setDropFrequency(id, newFrequency)) {
+                    if (!store.setDropChance(id, newFrequency)) {
                         System.out.println("id не существует");
                     } else {
                         System.out.println("изменение частоты выпадения успешно\n");
@@ -64,16 +64,16 @@ public class Menu {
                 int quantity = Integer.parseInt(in.next());
                 boolean flag1 = true;
                 System.out.println("введите шанс выпадения: ");
-                double frequency = Double.parseDouble(in.next());
+                double chance = Double.parseDouble(in.next());
                 while (flag1) {
-                    if (frequency > 0 && frequency < 100) {
+                    if (chance > 0 && chance < 100) {
                         flag1 = false;
                     } else {
                         System.out.println("введите шанс выпадения от 0 до 100: ");
-                        frequency = Double.parseDouble(in.next());
+                        chance = Double.parseDouble(in.next());
                     }
                 }
-                store.addToy(new Toy(counter.getId(), name, quantity, frequency));
+                store.addToy(new Toy(counter.getId(), name, quantity, chance));
                 System.out.println("новая игрушка добавлена ");
 
             }else if (user_input.contains("5")) {
@@ -87,16 +87,16 @@ public class Menu {
                 int quantity = Integer.parseInt(in.next());
                 boolean flag2 = true;
                 System.out.println("введите шанс выпадения игрушки: ");
-                double frequency = Double.parseDouble(in.next());
+                double chance = Double.parseDouble(in.next());
                 while (flag2) {
-                    if (frequency > 0 && frequency < 100) {
+                    if (chance > 0 && chance < 100) {
                         flag2 = false;
                     } else {
                         System.out.println("шанс выпадения от 0 до 100: ");
-                        frequency = Double.parseDouble(in.next());
+                        chance = Double.parseDouble(in.next());
                     }
                 }
-                if(store.changeItem(name, quantity, frequency)){
+                if(store.changeItem(name, quantity, chance)){
                     System.out.println("параметры игрушки  " + name + " изменены" );
                 }
                 else{

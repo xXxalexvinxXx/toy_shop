@@ -3,9 +3,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
-    private ArrayList<Toy> prizes;              // список призов
+    private ArrayList<Toy> prizes;
     private ArrayList<Toy> toys;
-    private String prizeFile;
+    private String prizeFile;           //имя файла с логом
 
     Menu menu = new Menu();
 
@@ -16,23 +16,13 @@ public class Game {
 
 
     }
-
-    public ArrayList<Toy> getPrizes() {
-        return prizes;
-    }
-
-    public String getPrizeFilePath() {
-        return prizeFile;
-    }
-
-
     public void choosePrizesRandom(ArrayList<Toy> toys) {
         prizes.clear();
 
         for (Toy toy : toys) {
             double random = Math.random() * 100;
 
-            if (random < toy.getDropFrequency()) {
+            if (random < toy.getDropChance()) {
                 prizes.add(toy);
 
             }
